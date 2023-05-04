@@ -1,0 +1,53 @@
+FRONTEND
+handlebars, css, js
+
+BACKEND
+express, db, routes, node.js
+
+pages:
+home page
+about
+sign in / registration
+dashboard
+inventory page
+upload
+logout(button)
+
+Forms types
+registration 
+product donation form
+tax deduction form 
+rsvp form for picking up equipment
+
+map:
+Cuttin Corner Barbershop
+13711 HIGGINS 78217
+of location for drop off and pick up
+
+DB_NAME
+
+first name: 
+last name: 
+address:
+email:
+phone:
+equipment_donated:
+
+inventory DB_NAME
+
+product_name: 
+equipment_donated:
+modle:
+connetion_type: HDMI, DVI, SVGA
+date_donated:
+
+user_dashboard
+
+profile:
+first_name:
+last_name:
+email:
+phone:
+equipment_donated:
+equipment_recieved:
+date of donation/ recieved:

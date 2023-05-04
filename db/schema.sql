@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS tech_donations
+CREATE DATABASE tech_donations
