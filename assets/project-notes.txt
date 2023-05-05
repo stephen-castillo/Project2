@@ -1,0 +1,51 @@
+Models:
+
+User
+  id
+  username
+  email
+  password
+  
+Quiz
+  creator
+  title
+  description
+  category
+  flashcards
+  
+Question
+  question text
+  answer choices
+  correct answer
+  
+Flashcards
+  front text
+  back text
+  hint
+  order(optional)
+  
+Result
+  user id
+  quiz id
+  score
+
+
+Routes:
+
+POST /quizzes - This route would allow users to create a new quiz by submitting a JSON object containing the quiz data.
+
+GET /quizzes/:id - This route would return the details of a specific quiz identified by the ID parameter.
+
+PUT /quizzes/:id - This route would allow users to update the details of a specific quiz identified by the ID parameter.
+
+DELETE /quizzes/:id - This route would allow users to delete a specific quiz identified by the ID parameter.
+
+GET /quizzes/:id/flashcards - This route would return a list of all flashcards in a specific quiz identified by the ID parameter.
+
+POST /quizzes/:id/flashcards - This route would allow users to create a new flashcard in a specific quiz identified by the ID parameter by submitting a JSON object containing the flashcard data.
+
+GET /quizzes/:id/flashcards/:flashcardId - This route would return the details of a specific flashcard identified by the flashcardId parameter in a specific quiz identified by the ID parameter.
+
+PUT /quizzes/:id/flashcards/:flashcardId - This route would allow users to update the details of a specific flashcard identified by the flashcardId parameter in a specific quiz identified by the ID parameter.
+
+DELETE /quizzes/:id/flashcards/:flashcardId - This route would allow users to delete a specific flashcard identified by the flashcardId parameter in a specific quiz identified by the ID parameter.
