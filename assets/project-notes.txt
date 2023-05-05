@@ -1,0 +1,30 @@
+Models:
+
+User
+  id
+  username
+  email
+  password
+  
+Quiz
+  creator
+  title
+  description
+  category
+  flashcards
+  
+Question
+  question text
+  answer choices
+  correct answer
+  
+Flashcards
+  front text
+  back text
+  hint
+  order(optional)
+  
+Result
+  user id
+  quiz id
+  score
