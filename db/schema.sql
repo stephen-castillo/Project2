@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS cram_time;
-CREATE DATABASE cram_time;
+DROP DATABASE IF EXISTS quickdecks;
+CREATE DATABASE quickdecks;

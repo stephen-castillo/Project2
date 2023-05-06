@@ -39,7 +39,7 @@ Question.hasMany(Flashcard, {
   });
   
 
-// In the Flashcards model
+// In the Flashcard model
 
 Flashcard.belongsTo(Question, {
     foreignKey: 'questionId',
