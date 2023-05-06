@@ -1,13 +1,13 @@
-CREATE DATABASE techGiveSA;
+CREATE DATABASE quickdecks;
 
 -- Create two new databases --
-DROP DATABASE IF EXISTS techGiveSA;
-CREATE DATABASE techGiveSA;
+DROP DATABASE IF EXISTS quickdecks;
+CREATE DATABASE quickdecks;
 
--- Use techGiveSA --
-USE techGiveSA;
+-- Use quickdecks --
+USE quickdecks;
 
-CREATE TABLE donated_tech
+CREATE TABLE user
 (
     first_name VARCHAR(30) NOT NULL,
     last_name TEXT NOT NULL,

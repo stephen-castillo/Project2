@@ -1,15 +1,15 @@
--- Create a new database called 'donated_tech'
+-- Create a new database called 'quickdecks'
 
 -- Connect to the 'master' database to run this snippet
 USE master
 GO
 -- Create the new database if it does not exist already
 IF NOT EXISTS (
-    SELECT name donated_tech
+    SELECT name quickdecks
         FROM sys.databases
-        WHERE name = N'techGiveSA'
+        WHERE name = N'quickdecks'
         
 )
-CREATE DATABASE donated_tech
+CREATE DATABASE quickdecks
 
 GO
