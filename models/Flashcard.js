@@ -11,14 +11,6 @@ Flashcard.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    creator: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: 'user',
-        key: 'username'
-      }
-    },
     question: {
       type: DataTypes.TEXT,
       allowNull: false,
