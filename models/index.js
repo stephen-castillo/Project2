@@ -42,7 +42,8 @@ Question.hasMany(Flashcard, {
 // In the Flashcard model
 
 Flashcard.belongsTo(Question, {
-    foreignKey: 'questionId',
+  foreignKey: 'questionId',
+  as: 'relatedQuestion'
   });
   
 Flashcard.belongsTo(User, {

@@ -1,0 +1,30 @@
+{{!--Display at top of dashboard after user has logged in--}}
+
+<div>
+  <h2>Welcome, {{user.username}}!</h2>
+</div>
+
+{{!--Loop through the flashcards and quizzes the user has made --}}
+
+<div class="flashcards">
+  <h2>My Flashcards</h2>
+  {{#each flashcards}}
+  <div class="flashcard">
+    <h3>{{this.title}}</h3>
+    <p>{{this.description}}</p>
+    <a href="/flashcards/{{this.id}}">Edit</a>
+  </div>
+  {{/each}}
+</div>
+
+
+<div class="quizzes">
+  <h2>My Quizzes</h2>
+  {{#each quizzes}}
+  <div class="quiz">
+    <h3>{{this.title}}</h3>
+    <p>{{this.description}}</p>
+    <a href="/quizzes/{{this.id}}">Edit</a>
+  </div>
+  {{/each}}
+</div>
