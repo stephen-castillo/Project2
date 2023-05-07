@@ -1,7 +1,7 @@
 const form = document.querySelector('form');
 const username = document.getElementById('set-username');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+const emailInput = document.getElementById('email-signup');
+const passwordInput = document.getElementById('set-password');
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -11,6 +11,7 @@ form.addEventListener('submit', async (event) => {
         email: emailInput.value.trim(),
         password: passwordInput.value.trim(),
     };
+    console.log(newUser);
 
     try {
         const response = await fetch('/signup', {
