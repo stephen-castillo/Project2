@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const username = document.getElementById('set-username');
-const emailInput = document.getElementById('email');
+const emailInput = document.getElementById('email-signup');
 const passwordInput = document.getElementById('password');
 
 form.addEventListener('submit', async (event) => {
@@ -11,6 +11,7 @@ form.addEventListener('submit', async (event) => {
         email: emailInput.value.trim(),
         password: passwordInput.value.trim(),
     };
+    console.log(newUser);
 
     try {
         const response = await fetch('/signup', {
