@@ -34,7 +34,7 @@ VALUES ("id"),
        ("createdAt"),
        ("updatedAt");
 
-       INSERT INTO User 
+       INSERT INTO user 
        (name)
 VALUES ("id"),
        ("username"),
