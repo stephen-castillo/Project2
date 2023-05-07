@@ -6,7 +6,7 @@ VALUES
     ("question"),
     ("answer"),
     ("explanation");
-
+INTO
 INSERT INTO question
     (name)
 VALUES
@@ -16,6 +16,23 @@ VALUES
     ("options"),
     ("corretOptionIndex");
 
+INSERT for the questions of subjectsfrom questionsDB.text,
+ INSERT INTO question (name)
+-- VALUES ("FAA Drone Pilot"),
+--    ("Data Science"),
+--    ("Math"),
+--    ("Electives");
+
+ INSERT INTO course_names (name, questions)
+  VALUES ("FAA Drone pilot Test Q's", 1),
+--    ("Data Science", 2),
+--        ("Linear Algebra", 3),
+--        ("History of the Internet", 4),
+--        ("Machine Learning", 4),
+--        ("Game Design", 1 ),
+--        ("Cloud Development", 1);
+
+
 INSERT INTO quiz
     (name)
 VALUES
@@ -23,23 +40,44 @@ VALUES
     ("creator"),
     ("title"),
     ("description"),
-    ("category"),       
+    ("category"),
     ("flashcards");
 
-    INSERT INTO results
-     (name)
-VALUES ("id"),
-       ("score"),
-       ("totals"),
-       ("createdAt"),
-       ("updatedAt");
+INSERT INTO results
+    (name)
+VALUES
+    ("id"),
+    ("score"),
+    ("totals"),
+    ("createdAt"),
+    ("updatedAt");
 
-       INSERT INTO user_name 
-       (name)
-VALUES ("id"),
-       ("username"),
-       ("email"),
-       ("password");
+
+ INSERT INTO question (name)
+ VALUES ("FAA Drone Pilot"),
+--    ("Data Science"),
+--    ("Math"),
+--    ("Electives");
+
+ INSERT INTO course_answers (name, questions)
+  VALUES ("FAA Drone pilot Test Q's", 1),
+--    ("Data Science", 2),
+--        ("Linear Algebra", 3),
+--        ("History of the Internet", 4),
+--        ("Machine Learning", 4),
+--        ("Game Design", 1 ),
+--        ("Cloud Development", 1);
+
+
+INSERT INTO quiz
+
+INSERT INTO user_name
+    (name)
+VALUES
+    ("id"),
+    ("username"),
+    ("email"),
+    ("password");
 
 
 -- put here in case we need it 
