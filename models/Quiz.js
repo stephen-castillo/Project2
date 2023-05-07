@@ -14,10 +14,6 @@ Quiz.init(
     creator: {
       type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'user',
-        key: 'username'
-      }
     },
     title: {
       type: DataTypes.STRING,

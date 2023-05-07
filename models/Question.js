@@ -19,6 +19,10 @@ Question.init(
         key: 'id'
       }
     },
+    category: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
     question: {
       type: DataTypes.TEXT,
       allowNull: false,
