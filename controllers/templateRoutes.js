@@ -31,28 +31,23 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-            // Probably DO NOT want this data being returned
-            // TODO: Remove this
-            const userData = await User.findAll({
-            attributes: { exclude: ['password'] },
-            order: [
-                ['last_name', 'ASC'], 
-                ['first_name', 'ASC']
-            ],
-        });
-
-    // TODO: Remove this and replace with data that I want on my homepage
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    res.render('home', {
-      users,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+        // Check if the user is logged in
+        if (req.session.logged_in) {
+            // Render the dashboard.handlebars for logged-in users
+            res.render('dashboard', {
+                loggedIn: req.session.logged_in,
+            });
+        } else {
+            // Render the home.handlebars for non-logged in users
+            res.render('home', {
+                loggedIn: req.session.logged_in,
+            });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 router.get('/login', (req, res) => {
