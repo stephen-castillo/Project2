@@ -8,7 +8,7 @@ VALUES
     ("explanation");
 INTO
 INSERT INTO question
-    (name)
+    (name FAA Drone Pilot Test)
 VALUES
     ("id"),
     ("quizId"),
