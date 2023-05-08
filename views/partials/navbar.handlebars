@@ -8,19 +8,19 @@ views/partials/navbar.hbs -->
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      {{#if user}}
+      {{#if loggedIn}}
         <li class="nav-item">
           <a class="nav-link" href="/dashboard">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link" href="/api/users/logout">Logout</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/views/accountsettings.handlebars">Account Settings</a>
         </li>
       {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/api/users/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/signup">Sign Up</a>
@@ -28,7 +28,7 @@ views/partials/navbar.hbs -->
       {{/if}}
     </ul>
   </div>
-    {{#if user}}
+    {{#if loggedIn}}
   <script src="/js/logout.js"></script>
     {{/if}}
 </nav>

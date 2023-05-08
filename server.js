@@ -32,11 +32,9 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, 'public')));
 // Add a MIME type configuration for CSS files
 express.static.mime.define({ 'text/css': ['css'] });
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 

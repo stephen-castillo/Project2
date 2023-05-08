@@ -9,19 +9,20 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
+    console.log('Made it to post route');
     try {
         const newUser = await User.create({
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
         });
-
+        console.log('I created the user in db');
         req.session.save(() => {
             req.session.user_id = newUser.id;
             req.session.logged_in = true;
             
-            //res.status(200).json(newUser);
-            res.redirect('/');
+            res.status(200).json(newUser);
+            //res.redirect('/');
             return;
             
         });
@@ -50,13 +51,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
 
-  res.render('login');
-});
 
 module.exports = router;

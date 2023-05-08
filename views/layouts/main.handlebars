@@ -11,12 +11,14 @@
 
 <body>
     <header>
-    {{> navbar}} <!-- include the navbar partial -->
+    {{> navbar}} <!-- include the navbar partial in all pages -->
     </header>
 
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
+
+  <script src="/public/js/partials.js"></script> <!-- load scripts for handlebars partials -->
 
   <footer>
       
