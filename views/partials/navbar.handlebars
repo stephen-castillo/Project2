@@ -1,7 +1,7 @@
 <!-- Navbar partial
 views/partials/navbar.hbs -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md">
   <a class="navbar-brand" href="/">Quickdecks</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,7 @@ views/partials/navbar.hbs -->
             <a class="nav-link" href="/views/accountsettings.handlebars">Account Settings</a>
         </li>
       {{else}}
-        <li class="nav-item">
+        <li class="nav-item mr-2">
           <a class="nav-link" href="/api/users/login">Login</a>
         </li>
         <li class="nav-item">
@@ -32,3 +32,5 @@ views/partials/navbar.hbs -->
   <script src="/js/logout.js"></script>
     {{/if}}
 </nav>
+
+
