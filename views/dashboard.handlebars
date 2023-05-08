@@ -1,32 +1,60 @@
-{{!--Display at top of dashboard after user has logged in--}}
+<div class="container">
+  <div class="row justify-content-center align-items-center vh-100">
 
-<div>
-  <h2>Welcome, {{user.username}}!</h2>
-</div>
+    {{!--Display at top of dashboard after user has logged in--}}
 
-{{!--Loop through the flashcards and quizzes the user has made --}}
+    <div class="container">
+      <h2>Welcome, {{user.username}}!</h2>
+    </div>
 
-<div class="flashcards">
-  <h2>My Flashcards</h2>
-  {{#each flashcards}}
-  <div class="flashcard">
-    <h3>{{this.title}}</h3>
-    <p>{{this.description}}</p>
-    <a href="/flashcards/{{this.id}}">Edit</a>
+    {{!--Loop through the flashcards and quizzes the user has made --}}
+
+    <div class="flashcards container">
+      <h2>My Flashcards</h2>
+
+          <div class="row">
+              <div class="col-md-4">
+
+            {{#each flashcards}}
+            <div class="card flashcard">
+              <div class="card-body bg-dark">
+                  <h3 class="card-title">{{this.title}}</h3>
+                  <p class="card-text">{{this.description}}</p>
+                  <a href="/flashcards/{{this.id}}">Edit</a>
+              </div>
+            </div>
+            {{/each}}
+
+            </div>
+          </div>
+
+      <a href="/flashcards/new">Create New Flashcard Set</a>
+
+    </div>
+
+
+    <div class="quizzes container">
+      <h2>My Quizzes</h2>
+
+        <div class="row">
+          <div class="col-md-4">
+
+              {{#each quizzes}}
+              <div class="card quiz">
+                <div class="card-body bg-dark"></div>
+                  <h3 class="card-title">{{this.title}}</h3>
+                  <p class="card-text">{{this.description}}</p>
+                  <a href="/quizzes/{{this.id}}">Edit</a>
+                </div>
+              </div>
+              {{/each}}
+
+          </div>
+        </div>
+
+      <a href="/quizzes/new">Create New Quiz</a>
+
+    </div>
+    
   </div>
-  {{/each}}
-  <a href="/flashcards/new">Create New Flashcard Set</a>
-</div>
-
-
-<div class="quizzes">
-  <h2>My Quizzes</h2>
-  {{#each quizzes}}
-  <div class="quiz">
-    <h3>{{this.title}}</h3>
-    <p>{{this.description}}</p>
-    <a href="/quizzes/{{this.id}}">Edit</a>
-  </div>
-  {{/each}}
-  <a href="/quizzes/new">Create New Quiz</a>
 </div>
