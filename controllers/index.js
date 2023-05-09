@@ -6,5 +6,6 @@ const templateRoutes = require('./templateRoutes'); //depends on name given to o
 //router.use('/', homeRoutes);
 router.use('/', templateRoutes);
 router.use('/api', apiRoutes);
+router.use('/*', templateRoutes);
 
 module.exports = router;
