@@ -1,0 +1,32 @@
+users can create their own flashcard question. Administrators create pre-loaded question. questions are stored by category. 
+
+quiz results are stored.
+
+**Users might be able to create a custom quiz with questions from all categories.**
+
+(custom quiz should be an icebox feature. FUTURE Development)
+
+--TABLES--
+
+User:
+
+email, username, password, quizes completed
+
+Question:
+
+question(STRING), option(STRING), correct_answer(STRING)
+
+Quiz: 
+
+category_name(STRING)
+
+Results:
+
+score(STRING), totalQuestions(INT), 
+
+
+--Associations
+
+User has many Quiz
+quiz has many question
+result belongs to user

@@ -12,23 +12,6 @@ Result.init(
             autoIncrement: true,
         },
         
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
-        
-        quizId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'quiz',
-                key: 'id'
-            }
-        },
         
         score: {
             type: DataTypes.INTEGER,
@@ -40,17 +23,7 @@ Result.init(
             allowNull: false,
         },
 
-        // These are optional, would be cool to have them
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-        },
+
     },
     {
         sequelize,
