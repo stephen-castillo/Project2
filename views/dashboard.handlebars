@@ -5,6 +5,7 @@
 
     <div class="container">
       <h2>Welcome, {{user.username}}!</h2>
+      <h4>Ready to test your knowledge?</h4>
     </div>
 
     {{!--Loop through the flashcards and quizzes the user has made --}}
@@ -51,10 +52,12 @@
             </div>
           </div>
 
+          <button class="btn btn-primary mt-4 mb-4" href="#" onclick="toggleFlashcardForm()">Create New Flashcard Set</button>
+
     <div class="container">
       <div class="card">
-        <div class="card-body">
-          {{#if showFlashcardForm}} 
+        <div class="card-body bg-dark">
+          
           <form id="flashcard-form" class="form" action="/flashcards" method="POST">
             <!-- form fields for creating a new flashcard set -->
             <div class ="form-group">
@@ -92,10 +95,8 @@
         <button type="button" id="add-question-btn">Add Question</button>
 
             <button type="submit">Create Flashcard Set</button>
-          </form>
-          {{else}}
-            <a href="#" onclick="toggleFlashcardForm()">Create New Flashcard Set</a>
-          {{/if}}
+          </form>  
+          
           </div>
       </div>
     </div> 
