@@ -11,26 +11,22 @@ Question.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    quizId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'quiz',
-        key: 'id'
-      }
-    },
-    category: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-    },
+    // quizId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'quiz',
+    //     key: 'id'
+    //   }
+    // },
+    // category: {
+    //     type: DataTypes.TEXT,
+    //     allowNull: false,
+    // },
     question: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        notNull: true,
-        notEmpty: true,
-      }
-    },
+   },
     options: {
       type: DataTypes.JSON,
       allowNull: false,
