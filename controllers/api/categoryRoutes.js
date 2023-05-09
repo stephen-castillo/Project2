@@ -11,7 +11,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        const { name } = req.body;
+        const name = req.body.name;
     
         const category = await Category.create(
             { 
@@ -27,8 +27,8 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:categoryId', withAuth, async (req, res) => {
     try {
-        const { categoryId } = req.params;
-        const { name } = req.body;
+        const categoryId = req.params.categoryId;
+        const name = req.body.name;
     
         const category = await Category.update({ name }, {
             where: { id: categoryId }
@@ -43,7 +43,7 @@ router.put('/:categoryId', withAuth, async (req, res) => {
 
 router.delete('/:categoryId', withAuth, async (req, res) => {
     try {
-        const { categoryId } = req.params;
+        const categoryId  = req.params.categoryId;
 
         const category = await Category.destroy({
             where: { id: categoryId }
