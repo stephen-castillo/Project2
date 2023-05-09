@@ -1,15 +1,14 @@
 <!-- Category page
     views/category.handlebars-->
 
-<h1>Categories</h1>
-
+<h1>Category</h1>
+{{#each categories as |category| }}
 <div id="category-container"></div>
-{{#each data}}
     <div class="card category">
         <div class="card-body bg-dark">
-            <h3 class="card-title">{{data.name}}</h3>
-            <p class="card-text">{{this.name}}</p>
-            <a href="/category/{{this.id}}">Edit Category</a>
+            <h3 class="card-title">{{this.name}}</h3>
+            <p class="card-text">{{category.name}}</p>
+            <a href="/category/{{category.id}}">Edit Category</a>
         </div>
     </div>
 {{/each}}

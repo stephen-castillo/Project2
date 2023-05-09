@@ -110,7 +110,8 @@
 
 // Toggle form script //
 
-  function toggleFlashcardForm() {
+  function toggleFlashcardForm(event) {
+    event.preventDefault();
     var form = document.getElementById("flashcard-form");
     if (form.style.display === "none") {
       form.style.display = "block";
