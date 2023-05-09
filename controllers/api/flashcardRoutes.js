@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { Flashcard } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 /* // Query database
 let deletedRow = 1;

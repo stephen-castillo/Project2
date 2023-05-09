@@ -8,6 +8,29 @@
     </div>
 
     {{!--Loop through the flashcards and quizzes the user has made --}}
+    <div class="categories container">
+      <h2>My Categories</h2>
+
+        <div class="row">
+          <div class="col-md-4">
+
+              {{#each category}}
+              <div class="card category">
+                <div class="card-body bg-dark"></div>
+                  <h3 class="card-title">{{this.title}}</h3>
+                  <p class="card-text">{{this.description}}</p>
+                  <a href="/category/{{this.id}}">Edit Category</a>
+                </div>
+              </div>
+              {{/each}}
+
+          </div>
+        </div>
+
+        <a href="/api/category">Get Categories</a>
+        <a href="/category/new">Create New Category</a>
+
+    </div>
 
     <div class="flashcards container">
       <h2>My Flashcards</h2>
@@ -19,7 +42,7 @@
             <div class="card flashcard">
               <div class="card-body bg-dark">
                   <h3 class="card-title">{{this.title}}</h3>
-                  <p class="card-text">{{this.description}}</p>
+                  <p class="card-text">{{this.Category.name}}</p>
                   <a href="/flashcards/{{this.id}}">Edit Flashcard</a>
               </div>
             </div>
@@ -28,33 +51,105 @@
             </div>
           </div>
 
-      <a href="/flashcards/new">Create New Flashcard Set</a>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          {{#if showFlashcardForm}} 
+          <form id="flashcard-form" class="form" action="/flashcards" method="POST">
+            <!-- form fields for creating a new flashcard set -->
+            <div class ="form-group">
+              <label for="deck-title">Title</label>
+              <input class="form-input form-control" type="text" id="deck-title" name="title"/>
+            </div>
 
-    </div>
+            <div class="form-group">
+              <label for="deck-category">Category</label>
+              <input class="form-input form-control" type="text" id="deck-category" name="category"/>
+            </div>
+            <!-- blank for now, in case we need another field-->
+            <div class="form-group">
+              <label for=""></label>
+              <input class="form-input form-control" type="" id="" name=""/>
+            </div>
 
-
-    <div class="quizzes container">
-      <h2>My Quizzes</h2>
-
-        <div class="row">
-          <div class="col-md-4">
-
-              {{#each quizzes}}
-              <div class="card quiz">
-                <div class="card-body bg-dark"></div>
-                  <h3 class="card-title">{{this.title}}</h3>
-                  <p class="card-text">{{this.description}}</p>
-                  <a href="/quizzes/{{this.id}}">Edit Quiz</a>
-                </div>
-              </div>
-              {{/each}}
-
+            <!-- dynamically generated question and answer fields -->
+          <div id="questions-container">
+            <div class="form-group">
+              <label for="question-1">Question 1</label>
+              <input class="form-input form-control" type="text" id="question-1" name="questions[0].question"/>
+            </div>
+            <div class="form-group">
+              <label for="correct-answer-1">Correct Answer</label>
+              <input class="form-input form-control" type="text" id="correct-answer-1" name="questions[0].correctAnswer"/>
+            </div>
+            <div class="form-group">
+              <label for="incorrect-answers-1">Incorrect Answers</label>
+              <input class="form-input form-control" type="text" id="incorrect-answers-1" name="questions[0].incorrectAnswers[]" multiple/>
+            </div>
           </div>
-        </div>
 
-      <a href="/quizzes/new">Create New Quiz</a>
+        <!-- add more question and answer fields button -->
+        <button type="button" id="add-question-btn">Add Question</button>
 
-    </div>
-    
-  </div>
+            <button type="submit">Create Flashcard Set</button>
+          </form>
+          {{else}}
+            <a href="#" onclick="toggleFlashcardForm()">Create New Flashcard Set</a>
+          {{/if}}
+          </div>
+      </div>
+    </div> 
+
 </div>
+
+
+<!-- Dashboard page scripts -->
+
+<script>
+
+// Toggle form script //
+
+  function toggleFlashcardForm() {
+    var form = document.getElementById("flashcard-form");
+    if (form.style.display === "none") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+  }
+
+
+// User-generated questions and answers script //
+
+const questionsContainer = document.getElementById("questions-container");
+  const addQuestionBtn = document.getElementById("add-question-btn");
+  let questionCount = 1;
+
+  function addQuestion() {
+    questionCount++;
+
+    const newQuestionHTML = `
+      <div class="form-group">
+        <label for="question-${questionCount}">Question ${questionCount}</label>
+        <input class="form-input form-control" type="text" id="question-${questionCount}" name="questions[${questionCount - 1}].question"/>
+      </div>
+      <div class="form-group">
+        <label for="correct-answer-${questionCount}">Correct Answer</label>
+        <input class="form-input form-control" type="text" id="correct-answer-${questionCount}" name="questions[${questionCount - 1}].correctAnswer"/>
+      </div>
+      <div class="form-group">
+        <label for="incorrect-answers-${questionCount}">Incorrect Answers</label>
+        <input class="form-input form-control" type="text" id="incorrect-answers-${questionCount}" name="questions[${questionCount - 1}].incorrectAnswers[]" multiple/>
+      </div>
+    `;
+
+    const newQuestion = document.createElement("div");
+    newQuestion.innerHTML = newQuestionHTML;
+
+    questionsContainer.appendChild(newQuestion);
+  }
+
+  addQuestionBtn.addEventListener("click", addQuestion);
+
+
+</script>

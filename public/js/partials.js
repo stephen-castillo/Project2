@@ -17,3 +17,8 @@ Handlebars.registerPartial('flashcards', flashcardpage);
 
 const quizpage = fs.readFileSync(__dirname + '/../views/partials/quizpage.handlebars', 'utf8');
 Handlebars.registerPartial('quiz', quizpage);
+
+// Category page
+
+const categorypage = fs.readFileSync(__dirname + '/../views/partials/category.handlebars', 'utf8');
+Handlebars.registerPartial('category', categorypage);
