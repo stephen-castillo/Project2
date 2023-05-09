@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const shuffle = require('lodash.shuffle');
 
 class Flashcard extends Model {}
 
@@ -35,16 +36,21 @@ Flashcard.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    explanation: { //optional
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
     modelName: 'flashcard',
+    hooks: {
+      afterFind: (flashcards) => {
+        flashcards.forEach((flashcard) => {
+          const options = flashcard.options.split(',');
+          const shuffledOptions = shuffle([...options, flashcard.answer]);
+          flashcard.shuffledOptions = shuffledOptions;
+        });
+      }
+    }
   }
 );
 

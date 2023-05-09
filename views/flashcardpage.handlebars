@@ -1,21 +1,44 @@
 <!-- views/partials/flashcardpage.handlebars-->
 
- <h1>Flashcards</h1>
- 
-    <div id="flashcard-container" class="container">
-      <div class="flashcard-carousel">
+<h1>Flashcards</h1>
+
+<div class="container">
+   {{#each flashcards}}
+   <h3>{{this.title}}</h3>
+   {{/each}}
+</div>
+
+<div id="flashcard-container" class="container">
+  <div class="card">
+      <div class="card-body">
          {{#each flashcards}}
             <div class="flashcard">
-               <div class="flashcard-question">{{question}}</div>
-               <div class="flashcard-options">
-               {{#each options}}
-                  <div class="flashcard-options">{{this}}</div>
+            <div class="flashcard-question">{{question}}</div>
+            <div class="flashcard-options-container">
+               {{#each shuffledOptions}}
+                  <div class="flashcard-option">{{this}}</div>
                {{/each}}
-               {{#each answer}}
-                  <div class="flashcard-answer">{{this}}</div>
-               {{/each}}
-               </div>
+            </div>
+            <div class="flashcard-answer-container">
+               <div class="flashcard-answer">{{answer}}</div>
+            </div>
+            <button class="btn btn-primary flashcard-toggle-answer-btn">Show Answer</button>
             </div>
          {{/each}}
-         </div>
       </div>
+  </div>
+</div>
+
+
+<script>
+
+   const toggleAnswerBtns = document.querySelectorAll('.flashcard-toggle-answer-btn');
+
+      toggleAnswerBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+         const answerContainer = btn.previousSibling.previousSibling;
+         answerContainer.style.display = answerContainer.style.display === 'none' ? 'block' : 'none';
+      });
+});
+
+</script>

@@ -70,11 +70,6 @@
               <label for="deck-category">Category</label>
               <input class="form-input form-control" type="text" id="deck-category" name="category"/>
             </div>
-            <!-- blank for now, in case we need another field-->
-            <div class="form-group">
-              <label for=""></label>
-              <input class="form-input form-control" type="" id="" name=""/>
-            </div>
 
             <!-- dynamically generated question and answer fields -->
           <div id="questions-container">
@@ -88,15 +83,18 @@
             </div>
             <div class="form-group">
               <label for="incorrect-answers-1">Incorrect Answers</label>
-              <input class="form-input form-control" type="text" id="incorrect-answers-1" name="questions[0].incorrectAnswers[]" multiple/>
+              <input class="form-input form-control" type="text" id="incorrect-answer-1-1" name="questions[0].incorrectAnswers[0]"/>
+              <input class="form-input form-control" type="text" id="incorrect-answer-1-2" name="questions[0].incorrectAnswers[1]"/>
+              <input class="form-input form-control" type="text" id="incorrect-answer-1-3" name="questions[0].incorrectAnswers[2]"/>
             </div>
           </div>
+
 
         <!-- add more question and answer fields button -->
         <button type="button" id="add-question-btn">Add Question</button>
 
             <button type="submit">Create Flashcard Set</button>
-          </form>  
+          </form>
           
           </div>
       </div>
@@ -130,21 +128,29 @@ const questionsContainer = document.getElementById("questions-container");
 
   function addQuestion() {
     questionCount++;
-
+    
     const newQuestionHTML = `
-      <div class="form-group">
-        <label for="question-${questionCount}">Question ${questionCount}</label>
-        <input class="form-input form-control" type="text" id="question-${questionCount}" name="questions[${questionCount - 1}].question"/>
-      </div>
-      <div class="form-group">
-        <label for="correct-answer-${questionCount}">Correct Answer</label>
-        <input class="form-input form-control" type="text" id="correct-answer-${questionCount}" name="questions[${questionCount - 1}].correctAnswer"/>
-      </div>
-      <div class="form-group">
-        <label for="incorrect-answers-${questionCount}">Incorrect Answers</label>
-        <input class="form-input form-control" type="text" id="incorrect-answers-${questionCount}" name="questions[${questionCount - 1}].incorrectAnswers[]" multiple/>
-      </div>
-    `;
+    <div class="form-group">
+      <label for="question-${questionCount}">Question ${questionCount}</label>
+      <input class="form-input form-control" type="text" id="question-${questionCount}" name="questions[${questionCount - 1}].question"/>
+    </div>
+    <div class="form-group">
+      <label for="correct-answer-${questionCount}">Correct Answer</label>
+      <input class="form-input form-control" type="text" id="correct-answer-${questionCount}" name="questions[${questionCount - 1}].correctAnswer"/>
+    </div>
+    <div class="form-group">
+      <label for="incorrect-answer-1-${questionCount}">Incorrect Answer 1</label>
+      <input class="form-input form-control" type="text" id="incorrect-answer-1-${questionCount}" name="questions[${questionCount - 1}].incorrectAnswers[0]"/>
+    </div>
+    <div class="form-group">
+      <label for="incorrect-answer-2-${questionCount}">Incorrect Answer 2</label>
+      <input class="form-input form-control" type="text" id="incorrect-answer-2-${questionCount}" name="questions[${questionCount - 1}].incorrectAnswers[1]"/>
+    </div>
+    <div class="form-group">
+      <label for="incorrect-answer-3-${questionCount}">Incorrect Answer 3</label>
+      <input class="form-input form-control" type="text" id="incorrect-answer-3-${questionCount}" name="questions[${questionCount - 1}].incorrectAnswers[2]"/>
+    </div>
+  `;
 
     const newQuestion = document.createElement("div");
     newQuestion.innerHTML = newQuestionHTML;
