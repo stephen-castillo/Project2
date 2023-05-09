@@ -11,6 +11,10 @@ Flashcard.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     categoryId:{
         type: DataTypes.INTEGER,
         allowNull: false,
