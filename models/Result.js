@@ -11,8 +11,14 @@ Result.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        
-        
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
         score: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -22,8 +28,10 @@ Result.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-
-
+        quizAttempts: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        }
     },
     {
         sequelize,

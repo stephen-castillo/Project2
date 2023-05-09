@@ -11,10 +11,22 @@ Flashcard.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    categoryId:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'category',
+            key: 'id'
+        }
+    },
     question: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    options: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
     answer: {
       type: DataTypes.TEXT,
       allowNull: false,
