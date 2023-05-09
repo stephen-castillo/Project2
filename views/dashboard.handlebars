@@ -40,11 +40,12 @@
               <div class="col-md-4">
 
             {{#each flashcards}}
-            <div class="card flashcard">
+            <div class="card flashcard" style="width: 18rem;">
               <div class="card-body bg-dark">
-                  <h3 class="card-title">{{this.title}}</h3>
-                  <p class="card-text">{{this.Category.name}}</p>
-                  <a href="/flashcards/{{this.id}}">Edit Flashcard</a>
+                  <h5 class="card-title">{{this.title}}</h5>
+                  <p class="card-subtitle">{{this.Category.name}}</p>
+                  <a href="#" class="card-link">Select</a>
+                  <a href="/flashcards/{{this.id}}">Edit</a>
               </div>
             </div>
             {{/each}}

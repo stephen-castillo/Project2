@@ -2,4 +2,20 @@
 
  <h1>Flashcards</h1>
  
-    <div id="flashcard-container"></div>
+    <div id="flashcard-container" class="container">
+      <div class="flashcard-carousel">
+         {{#each flashcards}}
+            <div class="flashcard">
+               <div class="flashcard-question">{{question}}</div>
+               <div class="flashcard-options">
+               {{#each options}}
+                  <div class="flashcard-options">{{this}}</div>
+               {{/each}}
+               {{#each answer}}
+                  <div class="flashcard-answer">{{this}}</div>
+               {{/each}}
+               </div>
+            </div>
+         {{/each}}
+         </div>
+      </div>
