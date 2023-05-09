@@ -9,4 +9,51 @@ router.get('/', withAuth, async (req, res) => {
     res.render('category',{ categories });
 });
 
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const { name } = req.body;
+    
+        const category = await Category.create(
+            { 
+                name: name, 
+            });
+  
+        res.status(200).json({ category, message: 'Category created successfully.' });
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.put('/:categoryId', withAuth, async (req, res) => {
+    try {
+        const { categoryId } = req.params;
+        const { name } = req.body;
+    
+        const category = await Category.update({ name }, {
+            where: { id: categoryId }
+        });
+  
+        res.status(200).json({ category, message: 'Category updated successfully.' });
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/:categoryId', withAuth, async (req, res) => {
+    try {
+        const { categoryId } = req.params;
+
+        const category = await Category.destroy({
+            where: { id: categoryId }
+        });
+  
+        res.status(200).json({ category, message: 'Category successfully deleted.' });
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
