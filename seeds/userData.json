@@ -1,12 +1,12 @@
 [
     {
-      "name": "Sal",
-      "email": "sal@hotmail.com",
-      "password": "password12345"
+        "username": "testuser",
+        "email": "test@test.com",
+        "password": "$2b$10$pppuXmc5FPt0/4Uz3y9hzOO9Sg7Hv24l9ttI4tz9TICf7ab8v10we"
     },
     {
-      "name": "Sandy",
-      "email": "whatever@gmail.com",
-      "password": "password12345"
+        "username": "testuser",
+        "email": "test2@test.com",
+        "password": "$2b$10$puvAMi4q/4QdW4.nh86k.eZAG4/3YqyKCZ5cQW/dNv8dp/Kh26Rgi"
     }
 ]

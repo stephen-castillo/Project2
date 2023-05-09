@@ -68,4 +68,4 @@ Result.belongsTo(User, {
     }); */
 
 //module.exports = { User, Flashcard, Question, Quiz, Result };
-module.exports = { User, Flashcard, Result };
+module.exports = { User, Flashcard, Result, Category };
