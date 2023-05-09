@@ -2,13 +2,16 @@ const {Category } = require('../models');
 
 const categoryData = [
   {
-    category_name: 'FAA Drone Pilot'
+    id: 1,
+    name: 'FAA Drone Pilot'
   },
   {
-    category_name: 'Pharmacy Tech'
+    id: 2,
+    name: 'Pharmacy Tech'
   },
   {
-    category_name: 'node.js'
+    id: 3,
+    name: 'node.js'
   },
 ]
 
@@ -17,22 +20,25 @@ module.exports = seedDatabase
 
 
 
-    const { Question } = require('../models');
+    const { Flashcard } = require('../models');
 
-    const quizData = [
+    const quizData = 
+    [
       
-      {
+    {
      quiz_id: 1,
-    category: 'regulations',
+    category: 1,
     question:  'UA.I.A.K4 A small UA causes an accident and your crew member loses consciousness. When do you report the accident?',
-    options:
+    options:[
     
-        'A.No accidents need to be reported, B. When requested by the UA owner. [You might be confused. If there is a deviation from the regulations, only upon request from the FAA, do you need to provide a report. 107.21 says, “(b) Each remote pilot in command who deviates from a rule under paragraph (a) of this section must, upon request of the Administrator, send a written report of that deviation to the Administrator.”', 
+        'A.No accidents need to be reported, B. When requested by the UA owner. [You might be confused. If there is a deviation from the regulations, only upon request from the FAA, do you need to provide a report. 107.21 says, “(b) Each remote pilot in command who deviates from a rule under paragraph (a) of this section must, upon request of the Administrator, send a written report of that deviation to the Administrator.”',
+
         'B. When requested by the UA owner. [You might be confused. If there is a deviation from the regulations, only upon request from the FAA, do you need to provide a report. 107.21 says, “(b) Each remote pilot in command who deviates from a rule under paragraph (a) of this section must, upon request of the Administrator, send a written report of that deviation to the Administrator.”]',
-        'C. Within 10 days of the accident. [107.9 Accident reporting. “No later than 10 calendar days after an operation that meets the criteria of either paragraph (a) or (b) of this section[.]”',
-    
-    correct_option_index:  'C. Within 10 days of the accident. [107.9 Accident reporting. “No later than 10 calendar days after an operation that meets the criteria of either paragraph (a) or (b) of this section[.]”'
-      },
+
+        'C. Within 10 days of the accident. [107.9 Accident reporting. “No later than 10 calendar days after an operation that meets the criteria of either paragraph (a) or (b) of this section[.]”'
+    ],
+        answer:  'C. Within 10 days of the accident. [107.9 Accident reporting. “No later than 10 calendar days after an operation that meets the criteria of either paragraph (a) or (b) of this section[.]”'
+    },
 
     {
     // quiz_id: 1,

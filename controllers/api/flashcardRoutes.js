@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-// Query database
+/* // Query database
 let deletedRow = 1;
 
 db.query(`DELETE FROM flashcards WHERE id = ?`, deletedRow, (err, result) => {
@@ -13,6 +13,6 @@ db.query(`DELETE FROM flashcards WHERE id = ?`, deletedRow, (err, result) => {
 // Query database
 db.query('SELECT * FROM flashcards, questions, quiz, results, user', function (err, results) {
   console.log(results);
-});
+}); */
 
 module.exports = router;

@@ -20,7 +20,7 @@ router.post('/signup', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = newUser.id;
             req.session.logged_in = true;
-            
+            req.session.user = newUser;
             res.status(200).json(newUser);
             //res.redirect('/');
             return;
@@ -39,6 +39,7 @@ router.get('/', async (req, res) => {
             // Render the dashboard.handlebars for logged-in users
             res.render('dashboard', {
                 loggedIn: req.session.logged_in,
+                user: req.session.user
             });
         } else {
             // Render the home.handlebars for non-logged in users
