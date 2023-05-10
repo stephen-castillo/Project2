@@ -53,7 +53,12 @@
 
           <div class="row">
               <div class="col-md-4">
-
+                <div class="container"id="flashcard-thumbnail">
+                  {{! }}
+                </div>
+                
+           
+           
             {{#each flashcards}}
             <div class="card container bg-dark" style="width: 18rem;">
               <div class="card-body">
@@ -191,7 +196,7 @@ const questionsContainer = document.getElementById("questions-container");
 
   addQuestionBtn.addEventListener("click", addQuestion);
 
-  // Create flashcards
+  // Create flashcards (prob not gonna use this but things break when I remove it -sandy)
 
   const createBtn = document.getElementById("create-flashcards-btn");
 
