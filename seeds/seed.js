@@ -1,10 +1,10 @@
 const sequelize = require('../config/connection');
-const { User, Category } = require('../models');
+const { User, Category, Flashcard } = require('../models');
 
 const userData = require('./userData.json');
 const categoryData = require('./categoryData.json');
 //const flashcardData = require('./flashcardData.json');
-
+const flashcardData = require('./testcardData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -19,10 +19,10 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  /* await Flashcard.bulkCreate(flashcardData, {
+  await Flashcard.bulkCreate(flashcardData, {
     individualHooks: true,
     returning: true,
-  }); */
+  });
 
 
   process.exit(0);
