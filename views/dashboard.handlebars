@@ -53,17 +53,10 @@
 
           <div class="row">
               <div class="col-md-4">
-
-            {{#each flashcards}}
-            <div class="card container bg-dark" style="width: 18rem;">
-              <div class="card-body">
-                  <h5 class="card-title">{{this.title}}</h5>
-                  <p class="card-subtitle">Category: {{this.Category.name}}</p>
-                  <a href="/api/flashcards/{{this.id}}" class="card-link">Select</a>
-                  <a href="/flashcards/{{this.id}}">Edit</a>
-              </div>
-            </div>
-            {{/each}}
+                
+                <div class="container"id="flashcard-thumbnail">
+                  {{! }}
+                </div>
 
             </div>
 
@@ -194,7 +187,7 @@ const questionsContainer = document.getElementById("questions-container");
 
   addQuestionBtn.addEventListener("click", addQuestion);
 
-  // Create flashcards
+  // Create flashcards (prob not gonna use this but things break when I remove it -sandy)
 
   const createBtn = document.getElementById("create-flashcards-btn");
 
@@ -212,6 +205,5 @@ const questionsContainer = document.getElementById("questions-container");
         console.log(data);
     });
   });
-
 
 </script>
