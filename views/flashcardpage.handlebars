@@ -1,37 +1,44 @@
 <!-- Flashcard Review Page
    views/flashcardpage.handlebars-->
+<style>
+    .card{
+        background-color: black;
+    }
+</style>
 
 <h1>Flashcards</h1>
-
+{{#each flashcards as |flashcard| }}
 <div class="container">
-   {{#each flashcards}}
+   
    <h3>{{this.title}}</h3>
-   {{/each}}
+   
 </div>
 
 <div id="flashcard-container" class="container">
   <div class="card">
       <div class="card-body">
-         {{#each flashcards as |flashcard|}}
+         
             <div class="flashcard">
-               <div class="flashcard-question">{{question}}</div>
+               <div class="flashcard-question">{{this.question}}</div>
 
                   <div class="flashcard-options-container">
+                    <div class="row">
                      {{#each shuffledOptions}}
-                     <div class="flashcard-option">{{this}}</div>
+                     <div class="col-md-6 flashcard-option">{{this}}</div>
                      {{/each}}
+                     </div>
                   </div>
-                        
                         <div class="flashcard-answer-container">
-                           <div class="flashcard-answer">{{answer}}</div>
+                           <div class="flashcard-answer" style="display:none;">{{this.answer}}</div>
                         </div>
 
                      <button class="btn btn-primary flashcard-toggle-answer-btn">Show Answer</button>
             </div>
-         {{/each}}
+         
       </div>
   </div>
 </div>
+{{/each}}
 
 
 <script>
@@ -40,8 +47,17 @@
 
       toggleAnswerBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-         const answerContainer = btn.previousSibling.previousSibling;
-         answerContainer.style.display = answerContainer.style.display === 'none' ? 'block' : 'none';
+         const answerContainer = btn.previousSibling.previousSibling.childNodes[1];
+         const button = btn;
+         //console.log(button.textContent);
+         //console.log(answerContainer);
+         if(answerContainer.style.display === 'none'){
+            button.textContent = 'Hide Answer';
+            answerContainer.style.display = 'block';
+         } else{
+            button.textContent ='Show Answer';
+            answerContainer.style.display ='none';
+         }
       });
 });
 
