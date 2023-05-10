@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "categoryId": 1,
+        "categoryId":1,
         "title": "Early childhood learning flashcard 1",
         "question": "What color is a banana?",
         "options": "yellow,blue,green,red",
@@ -9,7 +9,7 @@
     },
     {
         "id":2,
-        "categoryId": 1,
+        "categoryId":1,
         "title": "Early childhood learning flashcard 2",
         "question": "What color is the sky?",
         "options": "yellow,blue,green,red",
@@ -17,7 +17,7 @@
     },
     {
         "id":3,
-        "categoryId": 1,
+        "categoryId":1,
         "title": "Early childhood learning flashcard 3",
         "question": "What color is the grass?",
         "options": "yellow,blue,green,red",
@@ -25,7 +25,7 @@
     },
     {
         "id":4,
-        "categoryId": 2,
+        "categoryId":2,
         "title": "Pharmacy memorization flashcard 1",
         "question": "What market name for generic drug name, Aripiprazole?",
         "options": "Abilify,Adipex P,Ambien,Avicept",
@@ -34,7 +34,7 @@
     },
     {
         "id":5,
-        "categoryId": 2,
+        "categoryId":2,
         "title": "Pharmacy memorization flashcard 2",
         "question": "What is the drug Buspar used to treat?",
         "options": "Axiety,Depression,Blood Pressure,Insomnia",
@@ -42,7 +42,7 @@
     },
     {
         "id":6,
-        "categoryId": 2,
+        "categoryId":2,
         "title": "Pharmacy memorization flashcard 3",
         "question": "Which of the following is a schedule II drug?",
         "options": "Duloxetine,Depakote,Demerol,Dilantin",
