@@ -1,7 +1,23 @@
-[{
-	"categoryId": 1,
-	"title": "FAA Drone Pilot test question",
-	"question": "UA.I.A.K4 A small UA causes an accident and your crew member loses consciousness. When do you report the accident?",
-	"options": "yellow,blue,green,red",
-	"answer": "yellow"
-}]
+[
+    {
+        "categoryId": 1,
+        "title": "Early childhood learning flashcard 1",
+        "question": "What color is a banana?",
+        "options": "yellow,blue,green,red",
+        "answer": "yellow"
+    },
+    {
+        "categoryId": 1,
+        "title": "Early childhood learning flashcard 2",
+        "question": "What color is the sky?",
+        "options": "yellow,blue,green,red",
+        "answer": "blue"
+    },
+    {
+        "categoryId": 1,
+        "title": "Early childhood learning flashcard 3",
+        "question": "What color is the grass?",
+        "options": "yellow,blue,green,red",
+        "answer": "green"
+    }
+]
