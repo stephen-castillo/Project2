@@ -6,8 +6,9 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     const flashcards  = await Flashcard.findAll({raw: true});
     //console.log(categories);
-    res.status(200).json({ flashcards });
-    //res.render('flashcards',{ flashcards });
+    loggedIn = req.session.logged_in;
+    //res.status(200).json({ flashcards });
+    res.render('flashcardpage',{ flashcards, loggedIn });
 });
 
 router.post('/', withAuth, async (req, res) => {
