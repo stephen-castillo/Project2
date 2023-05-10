@@ -146,8 +146,11 @@ const closeButton = document.getElementById("close-form-btn");
 
 closeButton.addEventListener("click", (event) => {
   event.preventDefault();
+  const form = document.getElementById("flashcard-form");
+  const div = document.getElementById("flashcard-div");
+  //console.log(form);
   form.reset();
-  form.style.display = "none";
+  div.style.display = "none";
 });
 
 
