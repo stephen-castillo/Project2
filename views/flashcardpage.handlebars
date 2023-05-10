@@ -4,7 +4,7 @@
 <h1>Flashcards</h1>
 
 <div class="container">
-   {{#each flashcards as |flashcard|}}
+   {{#each flashcards}}
    <h3>{{this.title}}</h3>
    {{/each}}
 </div>
@@ -12,7 +12,7 @@
 <div id="flashcard-container" class="container">
   <div class="card">
       <div class="card-body">
-         {{#each flashcards}}
+         {{#each flashcards as |flashcard|}}
             <div class="flashcard">
                <div class="flashcard-question">{{question}}</div>
 
