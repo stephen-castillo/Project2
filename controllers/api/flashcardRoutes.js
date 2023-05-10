@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        const { title, categoryId, question, options, answer, explanation } = req.body;
+        const { title, categoryId, question, options, answer } = req.body;
     
         const flashcard = await Flashcard.create(
             { 
@@ -20,8 +20,7 @@ router.post('/', withAuth, async (req, res) => {
                 categoryId: categoryId, 
                 question: question, 
                 options: options, 
-                answer: answer, 
-                explanation: explanation
+                answer: answer
             });
   
         res.status(200).json({ flashcard, message: 'Flashcard created successfully.' });
@@ -34,9 +33,9 @@ router.post('/', withAuth, async (req, res) => {
 router.put('/:flashcardId', withAuth, async (req, res) => {
     try {
         const { flashcardId } = req.params;
-        const { title, categoryId, question, options, answer, explanation } = req.body;
+        const { title, categoryId, question, options, answer } = req.body;
     
-        const flashcard = await Flashcard.update({ title, categoryId, question, options, answer, explanation }, {
+        const flashcard = await Flashcard.update({ title, categoryId, question, options, answer }, {
             where: { id: flashcardId }
         });
   
