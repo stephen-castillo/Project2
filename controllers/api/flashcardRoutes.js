@@ -82,7 +82,7 @@ app.post('/flashcards', async (req, res) => {
 
 app.post('/flashcards', async (req, res) => {
     console.log("I am here");
-   /* try {
+   try {
       const { title, category, questions } = req.body;
       const newTitle = await Title.create({ name: title });
       const existingCategory = await Category.findOne({ name: category });
@@ -164,7 +164,7 @@ app.post('/flashcards', async (req, res) => {
     } catch (err) {
       console.error(err);
       res.status(500).json(err);
-    } */
+    }
   }); 
   
 
