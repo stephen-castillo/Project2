@@ -56,11 +56,11 @@
 
           <button class="btn btn-primary mt-4 mb-4" href="#" onclick="toggleFlashcardForm(event)">Create New Flashcard Set</button>
 
-    <div class="container">
+    <div id="flashcard-div" class="container" style="display: none;">
       <div class="card">
         <div class="card-body bg-dark">
           
-          <form id="flashcard-form" class="form" action="/flashcards" method="POST" style="display: none;">
+          <form id="flashcard-form" class="form" action="/flashcards" method="POST">
             <!-- form fields for creating a new flashcard set -->
             <div class ="form-group">
               <label for="deck-title">Title</label>
@@ -113,14 +113,15 @@
 
 // Toggle form script //
 
-const form = document.getElementById("flashcard-form");
+
 
 function toggleFlashcardForm(event) {
     event.preventDefault();
-    if (form.style.display === "none") {
-      form.style.display = "block";
+    const div = document.getElementById("flashcard-div");
+    if (div.style.display === "none") {
+      div.style.display = "block";
     } else {
-      form.style.display = "none";
+      div.style.display = "none";
     }
   }
 
@@ -190,7 +191,8 @@ const questionsContainer = document.getElementById("questions-container");
       })
     .then(response => response.json())
     .then(data => { 
-     
-
+        console.log(data);
+    });
+  });
 
 </script>
