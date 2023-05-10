@@ -53,13 +53,13 @@
             </div>
           </div>
 
-          <button class="btn btn-primary mt-4 mb-4" href="#" onclick="toggleFlashcardForm()">Create New Flashcard Set</button>
+          <button class="btn btn-primary mt-4 mb-4" href="#" onclick="toggleFlashcardForm(event)">Create New Flashcard Set</button>
 
     <div class="container">
       <div class="card">
         <div class="card-body bg-dark">
           
-          <form id="flashcard-form" class="form" action="/flashcards" method="POST">
+          <form id="flashcard-form" class="form" action="/flashcards" method="POST" style="display: none;">
             <!-- form fields for creating a new flashcard set -->
             <div class ="form-group">
               <label for="deck-title">Title</label>
@@ -112,9 +112,10 @@
 
 // Toggle form script //
 
-  function toggleFlashcardForm(event) {
+const form = document.getElementById("flashcard-form");
+
+function toggleFlashcardForm(event) {
     event.preventDefault();
-    var form = document.getElementById("flashcard-form");
     if (form.style.display === "none") {
       form.style.display = "block";
     } else {
@@ -122,16 +123,14 @@
     }
   }
 
-
-
 // Close and reset form script
 
-const form = document.getElementById("flashcard-form");
 const closeButton = document.getElementById("close-form-btn");
 
-closeButton.addEventListener("click", () => {
+closeButton.addEventListener("click", (event) => {
+  event.preventDefault();
   form.reset();
-  form.classList.toggle("hidden");
+  form.style.display = "none";
 });
 
 
