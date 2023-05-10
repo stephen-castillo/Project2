@@ -1,3 +1,5 @@
+const router = require('./controllers/api/flashcardRoutes');
+
 // Retrieve the form element
 const form = document.querySelector('#flashcard-form');
 
@@ -88,4 +90,5 @@ form.addEventListener('submit', event => {
 
     // Display the results
     const score = quizCards.length;
-};
+  }
+});
