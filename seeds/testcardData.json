@@ -19,5 +19,27 @@
         "question": "What color is the grass?",
         "options": "yellow,blue,green,red",
         "answer": "green"
+    },
+    {
+        "categoryId": 2,
+        "title": "Pharmacy memorization flashcard 1",
+        "question": "What market name for generic drug name, Aripiprazole?",
+        "options": "Abilify,Adipex P,Ambien,Avicept",
+        "answer": "Abilify"
+        
+    },
+    {
+        "categoryId": 2,
+        "title": "Pharmacy memorization flashcard 2",
+        "question": "What is the drug Buspar used to treat?",
+        "options": "Axiety,Depression,Blood Pressure,Insomnia",
+        "answer": "Axiety"
+    },
+    {
+        "categoryId": 2,
+        "title": "Pharmacy memorization flashcard 3",
+        "question": "Which of the following is a schedule II drug?",
+        "options": "Duloxetine,Depakote,Demerol,Dilantin",
+        "answer": "Demerol"
     }
 ]
