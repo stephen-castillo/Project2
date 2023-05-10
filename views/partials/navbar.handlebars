@@ -4,52 +4,52 @@ views/partials/navbar.hbs -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <div class="row">
-      <div class="col-3">
-        <a class="navbar-brand ml-auto pl-3 d-flex align-items-center" href="/">Quickdecks</a>
-      </div>
-      <div class="col-9">
         <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            {{#if loggedIn}}
-              <li class="nav-item">
-                <a class="nav-link" href="/api/users/logout">Logout</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/api/accountsettings">Account Settings</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/api/category">Categories</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/api/flashcards">Flashcards</a>
-              </li>
-            {{else}}
-              <li class="nav-item mr-2">
-                <a class="nav-link" href="/api/users/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/signup">Sign Up</a>
-              </li>
-            {{/if}}
-          </ul>
-          </div>
-      </div>
+            <div class="col-3">
+                <a class="navbar-brand ml-auto pl-3 d-flex align-items-center" href="/">Quickdecks</a>
+            </div>
+            <div class="col-9">
+                <ul class="navbar-nav mx-auto">
+                    {{#if loggedIn}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/users/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/accountsettings">Account Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/category">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/flashcards">Flashcards</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" href="/api/users/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Sign Up</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
     
-        {{#if loggedIn}}
-      <script src="/js/logout.js"></script>
-        {{/if}}
+            {{#if loggedIn}}
+        <script src="/js/logout.js"></script>
+            {{/if}}
 
-<script>
-  const navbarToggleBtn = document.querySelector('.navbar-toggler');
-  const navbarCollapse = document.querySelector('.navbar-collapse');
-  
-  navbarToggleBtn.addEventListener('click', () => {
-    navbarCollapse.classList.toggle('show');
-  });
-</script>
+            <script>
+            const navbarToggleBtn = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            navbarToggleBtn.addEventListener('click', () => {
+                navbarCollapse.classList.toggle('show');
+            });
+            </script>
 
     </div>
   </div>

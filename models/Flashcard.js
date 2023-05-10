@@ -46,7 +46,7 @@ Flashcard.init(
       afterFind: (flashcards) => {
         flashcards.forEach((flashcard) => {
           const options = flashcard.options.split(',');
-          const shuffledOptions = lo.shuffle([...options, flashcard.answer]);
+          const shuffledOptions = lo.shuffle([...options], flashcard.answer);
           flashcard.shuffledOptions = shuffledOptions;
         });
       }
