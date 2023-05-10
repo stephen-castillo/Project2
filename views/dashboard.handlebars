@@ -17,7 +17,7 @@
 
               {{#each category}}
               <div class="card category">
-                <div class="card-body bg-dark"></div>
+                <div class="card-body bg-dark">
                   <h3 class="card-title">{{this.title}}</h3>
                   <p class="card-text">{{this.description}}</p>
                   <a href="/category/{{this.id}}">Edit Category</a>
@@ -28,9 +28,24 @@
           </div>
         </div>
 
-        <a href="/api/category">Get Categories</a>
-        <a href="/category/new">Create New Category</a>
-
+                <div class="container">
+                  <div class="card bg-dark" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Previously used</h5>
+                      <p class="card-text">Categories created by you, or included in your flashcards.</p>
+                      <a href="/api/category" class="card-link">Open</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="card bg-dark" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Create a new category</h5>
+                      <p class="card-text">There is no limit to what you can learn.</p>
+                      <a href="/category/new">Create</a>
+                    </div>
+                  </div>
+                </div>
     </div>
 
     <div class="container">
@@ -174,23 +189,6 @@ const questionsContainer = document.getElementById("questions-container");
   }
 
   addQuestionBtn.addEventListener("click", addQuestion);
-
-  // Create flashcards
-
-  const createBtn = document.getElementById("create-flashcards-btn");
-
-  create.Btn.addEventListener("click", function(event) {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-
-    fetch('/flashcards', {
-      method: 'POST', 
-      body: formData
-      })
-    .then(response => response.json())
-    .then(data => { 
      
-
 
 </script>
