@@ -20,8 +20,8 @@ router.post('/signup', async (req, res) => {
             req.session.user_id = newUser.id;
             req.session.logged_in = true;
             req.session.user = newUser;
-            //res.status(200).json(newUser);
-            res.redirect('/');
+            res.status(200).json(newUser);
+            //res.redirect('/');
             return;
             
         });
