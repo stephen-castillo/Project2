@@ -1,9 +1,10 @@
-<!-- views/partials/flashcardpage.handlebars-->
+<!-- Flashcard Review Page
+   views/flashcardpage.handlebars-->
 
 <h1>Flashcards</h1>
 
 <div class="container">
-   {{#each flashcards}}
+   {{#each flashcards as |flashcard|}}
    <h3>{{this.title}}</h3>
    {{/each}}
 </div>
@@ -13,16 +14,19 @@
       <div class="card-body">
          {{#each flashcards}}
             <div class="flashcard">
-            <div class="flashcard-question">{{question}}</div>
-            <div class="flashcard-options-container">
-               {{#each shuffledOptions}}
-                  <div class="flashcard-option">{{this}}</div>
-               {{/each}}
-            </div>
-            <div class="flashcard-answer-container">
-               <div class="flashcard-answer">{{answer}}</div>
-            </div>
-            <button class="btn btn-primary flashcard-toggle-answer-btn">Show Answer</button>
+               <div class="flashcard-question">{{question}}</div>
+
+                  <div class="flashcard-options-container">
+                     {{#each shuffledOptions}}
+                     <div class="flashcard-option">{{this}}</div>
+                     {{/each}}
+                  </div>
+                        
+                        <div class="flashcard-answer-container">
+                           <div class="flashcard-answer">{{answer}}</div>
+                        </div>
+
+                     <button class="btn btn-primary flashcard-toggle-answer-btn">Show Answer</button>
             </div>
          {{/each}}
       </div>
