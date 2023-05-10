@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const shuffle = require('lodash.shuffle');
+const shuffle = require('lodash').shuffle();
 
 class Flashcard extends Model {}
 

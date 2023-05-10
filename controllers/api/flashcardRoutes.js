@@ -6,7 +6,8 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     const flashcards  = await Flashcard.findAll({raw: true});
     //console.log(categories);
-    res.render('flashcards',{ flashcards });
+    res.status(200).json({ flashcards });
+    //res.render('flashcards',{ flashcards });
 });
 
 router.post('/', withAuth, async (req, res) => {
@@ -48,7 +49,7 @@ router.put('/:flashcardId', withAuth, async (req, res) => {
 
 router.delete('/:flashcardId', withAuth, async (req, res) => {
     try {
-        const { flashcardId } = req.params;
+        const flashcardId  = req.params.flashcardId;
 
         const flashcard = await Flashcard.destroy({
             where: { id: flashcardId }
