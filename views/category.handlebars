@@ -7,11 +7,61 @@
 <div id="category-container"></div>
     <div class="card category">
         <div class="card-body bg-dark">
-            <h3 class="card-title">{{this.name}}</h3>
-            <p class="card-text">{{category.name}}</p>
-            <a href="/category/{{category.id}}">Edit Category</a>
+            <h3 class="card-title">{{name}}</h3>
+            <p class="card-text">{{name}}</p>
+            <a href="/api/quiz/{{id}}" role="button" class="btn btn-primary" >Begin Quiz</a>
+            <button id="Edit-Category-{{id}}" class="btn btn-primary" value="{{id}}" onclick=showEditForm(event,{{id}})>Edit Category</button>
         </div>
     </div>
+    <div id="category-div-{{id}}" style="display:none;">
+        <form id="category-form" class="form" action="/category" method="PUT">
+            <!-- form fields for creating a new flashcard set -->
+            <div class ="form-group">
+                <input type="text" hidden id="category-id" class="form-input form-control" value={{id}}>
+                <label for="deck-title">Category Name</label>
+                <input class="form-input form-control" type="text" id="category-name" name="name" value="{{name}}"/>
+            </div>
+
+            <!-- add more question and answer fields button -->
+
+            <button class="btn btn-primary" type="submit" id="edit-category-btn" value="{{id}}" onclick=editCategory(event, {{id}})>Submit Edit</button>
+
+          
+        </form>
+
+    </div>
 {{/each}}
+
+<script>
+        function showEditForm(event, id){
+            event.preventDefault();
+            console.log(event);
+            console.log(id);
+            const div = document.getElementById("category-div-"+id);
+            const btn = document.getElementById("Edit-Category-"+id);
+            if (div.style.display === "none") {
+                btn.innerText = 'Hide Form';
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+                btn.innerText = 'Edit Category';
+            }
+        }
+        function editCategory(event, id) {
+            event.preventDefault();
+            const form = document.getElementById("category-form");
+            console.log(form);
+            const formData = new FormData(form);
+            return;
+            fetch('/category/'+id, {
+                method: 'PUT', 
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => { 
+                console.log(data);
+            });
+        }
+</script>
 
 

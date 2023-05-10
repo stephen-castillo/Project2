@@ -1,0 +1,102 @@
+<!-- Flashcard Review Page
+   views/flashcardpage.handlebars-->
+<style>
+    .card{
+        background-color: black;
+    }
+</style>
+
+<h1>Quiz</h1>
+{{#each flashcards as |flashcard| }}
+<div class="container">
+   
+   <h3>{{this.title}}</h3>
+   
+</div>
+
+<div id="flashcard-container" class="container">
+  <div class="card">
+      <div class="card-body">
+         
+            <div class="flashcard">
+               <div class="flashcard-question">{{this.question}}</div>
+
+                  <div class="flashcard-options-container">
+                    <div class="row">
+                     {{#each shuffledOptions}}
+                        <div class="col-md-6 flashcard-option"><button class="btn btn-success" id="btn-{{this}}" onclick='selectAnswer(event, "{{this}}", "{{flashcard.answer}}")'>{{this}}</button></div>
+                     {{/each}}
+                     </div>
+                  </div>
+                  <br>
+                  <br>
+                        <div class="flashcard-answer-container">
+                            <div class="flashcard-answer col-2" style="display:none; background-color:darkcyan;">{{this.answer}}</div><br>
+                        </div>
+                     <button class="btn btn-primary flashcard-toggle-answer-btn">Show Answer</button>
+            </div>
+         
+      </div>
+  </div>
+</div>
+{{/each}}
+<br>
+<br>
+<div id="canswer" class="container-md" style="background-color: black;">
+
+</div>
+
+<script>
+    var correct = 0;
+    var total;
+    function selectAnswer(event, option, answer){
+        
+        //console.log(option);
+        //console.log(correct);
+        if(option === answer){
+            correct ++;
+        }
+        const canswer = document.getElementById('canswer');
+        if(correct === 0){
+            canswer.style.display = 'none';
+        }
+        else if(correct !== 0){
+            canswer.style.display = 'block'
+            canswer.innerText = 'Correct answer count is: '+correct;
+        }
+    }
+
+   const toggleAnswerBtns = document.querySelectorAll('.flashcard-toggle-answer-btn');
+
+      toggleAnswerBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+         const answerContainer = btn.previousSibling.previousSibling.childNodes[1];
+         const button = btn;
+         //console.log(button.textContent);
+         //console.log(answerContainer);
+         if(answerContainer.style.display === 'none'){
+            button.textContent = 'Hide Answer';
+            answerContainer.style.display = 'block';
+         } else{
+            button.textContent ='Show Answer';
+            answerContainer.style.display ='none';
+         }
+      });
+});
+
+</script>
+
+<!--or-->
+<!-- Quiz HTML -->
+<div id="quiz" class="container d-none">
+  <h1>Flashcard Quiz</h1>
+  <div id="question-container" class="my-3"></div>
+  <button id="submit-button" class="btn btn-primary">Submit</button>
+</div>
+
+<!-- Results HTML -->
+<div id="results" class="container d-none">
+  <h1>Results</h1>
+  <div id="score-container" class="my-3"></div>
+  <button id="restart-button" class="btn btn-primary">Restart Quiz</button>
+</div>

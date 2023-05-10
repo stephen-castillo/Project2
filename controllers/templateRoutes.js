@@ -35,6 +35,7 @@ router.get('/', async (req, res) => {
     try {
         // Check if the user is logged in
         if (req.session.logged_in) {
+            
             // Render the dashboard.handlebars for logged-in users
             res.render('dashboard', {
                 loggedIn: req.session.logged_in,
