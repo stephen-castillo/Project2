@@ -33,24 +33,25 @@
 
     </div>
 
-    <div class="flashcards container">
+    <div class="container">
       <h2>My Flashcards</h2>
 
           <div class="row">
               <div class="col-md-4">
 
             {{#each flashcards}}
-            <div class="card" style="width: 18rem;">
-              <div class="card-body bg-dark">
+            <div class="card container bg-dark" style="width: 18rem;">
+              <div class="card-body">
                   <h5 class="card-title">{{this.title}}</h5>
-                  <p class="card-subtitle">{{this.Category.name}}</p>
-                  <a href="#" class="card-link">Select</a>
+                  <p class="card-subtitle">Category: {{this.Category.name}}</p>
+                  <a href="/api/flashcards/{{this.id}}" class="card-link">Select</a>
                   <a href="/flashcards/{{this.id}}">Edit</a>
               </div>
             </div>
             {{/each}}
 
             </div>
+
           </div>
 
           <button class="btn btn-primary mt-4 mb-4" href="#" onclick="toggleFlashcardForm(event)">Create New Flashcard Set</button>
@@ -93,7 +94,7 @@
         <!-- add more question and answer fields button -->
         <button type="button" id="add-question-btn">Add Question</button>
 
-        <button type="submit">Create Flashcard Set</button>
+        <button type="submit" id="create-flashcards-btn">Create Flashcards</button>
 
         <button type="button" id="close-form-btn">Cancel</button>
           
@@ -173,6 +174,23 @@ const questionsContainer = document.getElementById("questions-container");
   }
 
   addQuestionBtn.addEventListener("click", addQuestion);
+
+  // Create flashcards
+
+  const createBtn = document.getElementById("create-flashcards-btn");
+
+  create.Btn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch('/flashcards', {
+      method: 'POST', 
+      body: formData
+      })
+    .then(response => response.json())
+    .then(data => { 
+     
 
 
 </script>
